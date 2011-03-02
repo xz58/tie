@@ -1,0 +1,23 @@
+<{include file="header.html"}>
+<div id="main">
+  <div id="title">
+    <h2>Moods Matching</h2>
+    <p><a href="<{spUrl c=main a=logout}>">Log out</a></p>
+  </div>
+  <div id="view">
+    <div id="mymatching">
+        <h3>Who is matching me?</h3>
+        <table> 
+        <{foreach from=$results item=result}>
+        <tr>
+            <td><{$result.first_name}> <{$result.last_name}></td> 
+            <td><{$result.fname}></td>
+            <td><{$result.time}></td>
+            <td><a href="<{spUrl c=friends a=add uid=$result.uid}>">Add</a></td>
+        </tr>
+        <{/foreach}>
+        </table>
+    </div>
+  </div>
+</div>
+<{include file="footer.html"}> 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+	    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:checkedButton="@+id/lunch"
+        android:id="@+id/feelings_group">
+        <RadioButton
+            android:text="desperated"
+            android:id="@+id/feeling_1"
+            />
+        <RadioButton
+            android:text="unhappy"
+            android:id="@+id/feeling_2" />
+        <RadioButton
+            android:text="normal"
+            android:id="@+id/feeling_3" />
+        <RadioButton
+            android:text="pleased"
+            android:id="@+id/feeling_4" />
+        <RadioButton
+            android:text="exalted"
+            android:id="@+id/feeling_5" />
+    </RadioGroup>
+        
+	</LinearLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >        
+        <include layout="@layout/menu" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<{include file="header.html"}>
+<div id="main">
+  <div id="title">
+    <h2>Users Management</h2>
+    <p><a href="<{spUrl c=main a=logout}>">Log out</a></p>
+  </div>
+  <div id="view">
+	<div id="ulist">
+	    <h3>Active users list</h3>
+	    <table>
+	        <tr>
+	           <th>id</th>
+	           <th>uname</th>
+	           <th>email</th>
+	           <th>Name</th>
+	           <th>link</th>
+	        </tr>
+            <{foreach from=$results item=result}>
+            <tr>
+                <td><{$result.uid}></td>
+                <td><{$result.uname}></td> 
+                <td><{$result.email}></td> 
+                <td><{$result.fname}> <{$result.lname}></td> 
+                <td><a href="<{spUrl c=main a=delete uid=$result.uid}>">Delete</a></td>
+            </tr>
+            <{/foreach}>
+        </table>
+        <p class="pages"> <{if $pager}>
+        Total <{$pager.total_count}> users in <{$pager.total_page}> pages (<{$pager.page_size}> per page):
+        <!--Current is not the first page, show "First Page" and "Previous Pages"-->
+        <{if $pager.current_page != $pager.first_page}> 
+        <a href="<{spUrl c=main a=users page=$pager.first_page}>">|&lt;</a> <a href="<{spUrl c=main a=users page=$pager.prev_page}>">&lt;&lt;</a>
+        <{/if}>
+        <!--Loop for pages, no link for current page-->
+        <{foreach from=$pager.all_pages item=thepage}>
+        <{if $thepage != $pager.current_page}> <a href="<{spUrl c=main a=users page=$thepage}>"><{$thepage}></a> <{else}> <b><{$thepage}></b> <{/if}>
+        <{/foreach}>
+        <!--Current is not the last page, show "Next Page" and "Last Pages"-->
+        <{if $pager.current_page != $pager.last_page}>
+        <a href="<{spUrl c=main a=users page=$pager.next_page}>">&gt;&gt;</a> <a href="<{spUrl c=main a=users page=$pager.last_page}>">&gt;|</a> 
+        <{/if}>
+        <{/if}></p>
+    </div>
+  </div>
+</div>
+<{include file="footer.html"}> 
